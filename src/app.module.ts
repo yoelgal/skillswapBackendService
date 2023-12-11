@@ -9,6 +9,7 @@ import { SkillsModule } from './skills/skills.module';
 import { SeedModule } from './seed/seed.module';
 import { Skill } from './entities/skill.entity';
 import { UserSkillsModule } from './user-skills/user-skills.module';
+import { UserInterestsModule } from './user-interests/user-interests.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { UserSkillsModule } from './user-skills/user-skills.module';
     SkillsModule,
     SeedModule,
     UserSkillsModule,
+    UserInterestsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
