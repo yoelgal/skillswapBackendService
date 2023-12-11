@@ -4,8 +4,11 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
-import { User } from './users/entities/user.entity';
+import { User } from './entities/user.entity';
 import { SkillsModule } from './skills/skills.module';
+import { SeedModule } from './seed/seed.module';
+import { Skill } from './entities/skill.entity';
+import { UserSkillsModule } from './user-skills/user-skills.module';
 
 @Module({
   imports: [
@@ -19,11 +22,13 @@ import { SkillsModule } from './skills/skills.module';
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      entities: [User],
+      entities: [User, Skill],
       synchronize: true,
     }),
     UsersModule,
     SkillsModule,
+    SeedModule,
+    UserSkillsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

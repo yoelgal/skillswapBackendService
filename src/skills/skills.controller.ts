@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { Skill } from './entities/skill.entity';
+import { Skill } from '../entities/skill.entity';
 import { SkillsService } from './skills.service';
 
 @Controller('skills')
