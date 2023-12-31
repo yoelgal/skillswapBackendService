@@ -6,11 +6,12 @@ import { UsersService } from './users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { HashService } from '../auth/hash.service';
+import { MailService } from '../auth/mail.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
   controllers: [UsersController],
-  providers: [UsersService, HashService],
+  providers: [UsersService, HashService, MailService],
   exports: [UsersService],
 })
 export class UsersModule {}

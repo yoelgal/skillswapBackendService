@@ -6,6 +6,7 @@ import { UserInterest } from '../user-interests/user-interest.entity';
 import { User } from '../users/user.entity';
 import { Skill } from '../skills/skill.entity';
 import { CreateUserSkillDto } from '../../utils/dto/create-user-skill.dto';
+import { SkillRequest } from '../skill-requests/skill-request.entity';
 
 @Injectable()
 export class UserSkillsService {
@@ -85,5 +86,55 @@ export class UserSkillsService {
         'userSkill.note as note',
       ])
       .getRawMany();
+  }
+
+  async updateUserSkill(
+    userId: number,
+    id: number,
+    note: string,
+    skillLevel: number,
+  ): Promise<any> {
+    const userSkill = await this.userSkillsRepository.findOne({
+      where: { id },
+    });
+
+    if (userSkill.userId != userId) {
+      throw new Error('User does not own this skill.');
+    }
+    userSkill.note = note;
+    userSkill.skillLevel = skillLevel;
+    return await this.userSkillsRepository.save(userSkill);
+  }
+
+  async createUserSkill(
+    userId: number,
+    createUserSkillDto: CreateUserSkillDto,
+  ) {
+    const { skillId, note, skillLevel } = createUserSkillDto;
+
+    const user = await this.usersRepository.findOne({ where: { id: userId } });
+    const skill = await this.skillsRepository.findOne({
+      where: { id: skillId },
+    });
+
+    const userSkill = new UserSkill();
+    userSkill.userId = user.id;
+    userSkill.skillId = skill.id;
+    userSkill.note = note;
+    userSkill.skillLevel = skillLevel;
+
+    return await this.userSkillsRepository.save(userSkill);
+  }
+
+  async deleteUserSkill(userId: number, id: number): Promise<any> {
+    const userSkill = await this.userSkillsRepository.findOne({
+      where: { id },
+    });
+
+    if (userSkill.userId != userId) {
+      throw new Error('User does not own this skill.');
+    }
+
+    return await this.userSkillsRepository.delete({ id });
   }
 }

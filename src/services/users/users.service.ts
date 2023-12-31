@@ -6,10 +6,12 @@ import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { CreateUserDto } from '../../utils/dto/create-user.dto';
 import { HashService } from '../auth/hash.service';
+import { MailService } from '../auth/mail.service';
 
 @Injectable()
 export class UsersService {
   constructor(
+    private mailService: MailService,
     private hashService: HashService,
     @InjectRepository(User)
     private usersRepository: Repository<User>,
@@ -43,5 +45,16 @@ export class UsersService {
     };
     const user = this.usersRepository.create(userEntity);
     return this.usersRepository.save(user);
+  }
+
+  async reportUser(userId: number): Promise<User> {
+    const user = await this.usersRepository.findOne({ where: { id: userId } });
+    user.reports += 1;
+    if (user.reports >= 4) {
+      await this.mailService.notifyUserOfSuspension(user);
+      return this.usersRepository.remove(user);
+    } else {
+      return this.usersRepository.save(user);
+    }
   }
 }

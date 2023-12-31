@@ -13,4 +13,11 @@ export class SkillsService {
   async findAll(): Promise<Skill[]> {
     return this.skillsRepository.find();
   }
+
+  async findSkillsBySearchInput(search: string): Promise<Skill[]> {
+    return await this.skillsRepository
+      .createQueryBuilder('skill')
+      .where('skill.name LIKE :search', { search: `%${search}%` })
+      .getMany();
+  }
 }

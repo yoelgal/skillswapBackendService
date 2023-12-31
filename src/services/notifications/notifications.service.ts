@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Notification } from './notification.entity';
 import { User } from '../users/user.entity';
 import { Skill } from '../skills/skill.entity';
+import { SkillRequestsService } from '../skill-requests/skill-requests.service';
 
 @Injectable()
 export class NotificationsService {
@@ -41,5 +42,31 @@ export class NotificationsService {
       ...notification,
       sender_email: notification.accepted ? notification.sender_email : '',
     }));
+  }
+
+  async createNotification(
+    senderId: number,
+    receiverId: number,
+    skillId: number,
+    accepted: boolean,
+  ) {
+    const notification = new Notification();
+    notification.senderId = senderId;
+    notification.receiverId = receiverId;
+    notification.skillId = skillId;
+    notification.accepted = accepted;
+    return this.notificationsRepository.save(notification);
+  }
+
+  async deleteNotification(notificationId: number, userId: number) {
+    const notification = await this.notificationsRepository.findOne({
+      where: { id: notificationId },
+    });
+
+    if (notification.receiverId !== userId) {
+      throw new Error('You do not have permission to delete notification');
+    }
+
+    await this.notificationsRepository.delete({ id: notificationId });
   }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { NotificationsService } from './notifications.service';
 import { GetUser } from '../../utils/get-user.decorator';
 import { User } from '../users/user.entity';
@@ -17,5 +17,17 @@ export class NotificationsController {
   @Get('/user')
   async getNotificationsByUserId(@GetUser() user: User) {
     return this.notificationsService.findNotificationsByUserId(user.id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('/delete')
+  async deleteNotification(
+    @GetUser() user: User,
+    @Body('notificationId') notificationId: number,
+  ) {
+    return this.notificationsService.deleteNotification(
+      notificationId,
+      user.id,
+    );
   }
 }

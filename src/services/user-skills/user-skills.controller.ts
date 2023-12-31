@@ -1,8 +1,20 @@
-import { Controller, Get, Param, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Patch,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { UserSkillsService } from './user-skills.service';
 import { GetUser } from '../../utils/get-user.decorator';
 import { User } from '../users/user.entity';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { CreateUserSkillDto } from '../../utils/dto/create-user-skill.dto';
 
 @Controller('user-skills')
 export class UserSkillsController {
@@ -39,5 +51,37 @@ export class UserSkillsController {
       user.id,
       searchInput,
     );
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('/create')
+  @HttpCode(HttpStatus.CREATED)
+  async createUserSkill(
+    @GetUser() user: User,
+    @Body() createUserSkillDto: CreateUserSkillDto,
+  ) {
+    return this.userSkillsService.createUserSkill(user.id, createUserSkillDto);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('/update')
+  async updateUserSkill(
+    @GetUser() user: User,
+    @Body('id') id: number,
+    @Body('note') note: string,
+    @Body('skillLevel') skillLevel: number,
+  ) {
+    return this.userSkillsService.updateUserSkill(
+      user.id,
+      id,
+      note,
+      skillLevel,
+    );
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete('/delete')
+  async deleteUserSkill(@GetUser() user: User, @Body('id') id: number) {
+    return this.userSkillsService.deleteUserSkill(user.id, id);
   }
 }

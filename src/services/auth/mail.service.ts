@@ -5,6 +5,7 @@ import { ConfigService } from '@nestjs/config';
 import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
 import * as jwt from 'jsonwebtoken';
+import { User } from '../users/user.entity';
 
 @Injectable()
 export class MailService {
@@ -19,6 +20,21 @@ export class MailService {
         pass: this.configService.get<string>('EMAIL_PASS'),
       },
     });
+  }
+
+  async notifyUserOfSuspension(user: User): Promise<void> {
+    const mailOptions = {
+      from: `"No Reply" <${this.configService.get<string>('EMAIL_USER')}>`,
+      to: user.email,
+      subject: 'Account Suspension',
+      html: `
+        <b>Your account has been suspended due to multiple reports.</b>
+        <br />
+        <p>Please contact us for more information.</p>
+      `,
+    };
+
+    await this.transporter.sendMail(mailOptions);
   }
 
   async sendMail(recipient: string): Promise<void> {
