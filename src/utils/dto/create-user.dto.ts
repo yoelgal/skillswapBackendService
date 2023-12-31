@@ -5,9 +5,6 @@ export class CreateUserDto {
   email: string;
 
   @IsString()
-  name: string;
-
-  @IsString()
   password: string;
 
   @IsInt()
@@ -24,7 +21,4 @@ export class CreateUserDto {
 
   @IsString()
   course: string;
-
-  @IsInt()
-  reports: number;
 }

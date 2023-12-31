@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserSkill } from '../../entities/user-skill.entity';
+import { UserSkill } from './user-skill.entity';
 import { Repository } from 'typeorm';
-import { UserInterest } from '../../entities/user-interest.entity';
-import { User } from '../../entities/user.entity';
-import { Skill } from '../../entities/skill.entity';
+import { UserInterest } from '../user-interests/user-interest.entity';
+import { User } from '../users/user.entity';
+import { Skill } from '../skills/skill.entity';
 import { CreateUserSkillDto } from '../../utils/dto/create-user-skill.dto';
 
 @Injectable()

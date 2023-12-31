@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { UserSkillsController } from './user-skills.controller';
 import { UserSkillsService } from './user-skills.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserSkill } from '../../entities/user-skill.entity';
-import { Skill } from '../../entities/skill.entity';
-import { UserInterest } from '../../entities/user-interest.entity';
-import { User } from '../../entities/user.entity';
+import { UserSkill } from './user-skill.entity';
+import { Skill } from '../skills/skill.entity';
+import { UserInterest } from '../user-interests/user-interest.entity';
+import { User } from '../users/user.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserSkill, User, Skill, UserInterest])],

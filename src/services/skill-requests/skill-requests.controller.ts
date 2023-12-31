@@ -2,7 +2,7 @@ import { Controller, Get, UseGuards } from '@nestjs/common';
 import { SkillRequestsService } from './skill-requests.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { GetUser } from '../../utils/get-user.decorator';
-import { User } from '../../entities/user.entity';
+import { User } from '../users/user.entity';
 
 @Controller('skill-requests')
 export class SkillRequestsController {

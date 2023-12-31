@@ -1,7 +1,7 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { NotificationsService } from './notifications.service';
 import { GetUser } from '../../utils/get-user.decorator';
-import { User } from '../../entities/user.entity';
+import { User } from '../users/user.entity';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('notifications')

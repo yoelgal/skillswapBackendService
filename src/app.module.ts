@@ -4,18 +4,18 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './services/users/users.module';
 import { ConfigModule } from '@nestjs/config';
-import { User } from './entities/user.entity';
+import { User } from './services/users/user.entity';
 import { SkillsModule } from './services/skills/skills.module';
-import { SeedModule } from './seed/seed.module';
-import { Skill } from './entities/skill.entity';
-import { UserSkill } from './entities/user-skill.entity';
+import { SeedModule } from '../seed/seed.module';
+import { Skill } from './services/skills/skill.entity';
+import { UserSkill } from './services/user-skills/user-skill.entity';
 import { UserSkillsModule } from './services/user-skills/user-skills.module';
 import { UserInterestsModule } from './services/user-interests/user-interests.module';
-import { UserInterest } from './entities/user-interest.entity';
+import { UserInterest } from './services/user-interests/user-interest.entity';
 import { SkillRequestsModule } from './services/skill-requests/skill-requests.module';
-import { SkillRequest } from './entities/skill-request.entity';
+import { SkillRequest } from './services/skill-requests/skill-request.entity';
 import { NotificationsModule } from './services/notifications/notifications.module';
-import { Notification } from './entities/notification.entity';
+import { Notification } from './services/notifications/notification.entity';
 import { AuthModule } from './services/auth/auth.module';
 
 @Module({

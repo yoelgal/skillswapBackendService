@@ -1,4 +1,9 @@
-function generateRandomName(): string {
+function getFirstNameFromEmail(email: string): string {
+  return email[0].toUpperCase() + email.slice(1).split('.')[0];
+}
+
+function generateRandomEmail(): string {
+  const domains = ['example.com', 'mail.com', 'test.org'];
   const firstNames = [
     'John',
     'Jane',
@@ -26,7 +31,7 @@ function generateRandomName(): string {
     'Harper',
     'Alexander',
     'Evelyn',
-  ];
+  ].map((name) => name.toLowerCase());
   const lastNames = [
     'Smith',
     'Johnson',
@@ -58,30 +63,25 @@ function generateRandomName(): string {
     'Ramirez',
     'Lewis',
     'Robinson',
-  ];
+  ].map((name) => name.toLowerCase());
 
   const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
   const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-  return `${firstName} ${lastName}`;
-}
 
-function generateRandomEmail(name: string): string {
-  const domains = ['example.com', 'mail.com', 'test.org'];
-  const emailName = name.toLowerCase().replace(' ', '.');
   const domain = domains[Math.floor(Math.random() * domains.length)];
-  return `${emailName}@${domain}`;
+  return `${firstName}.${lastName}@${domain}`;
 }
 
 function generateRandomUser(): any {
-  const name = generateRandomName();
-  const email = generateRandomEmail(name);
+  const email = generateRandomEmail();
+  const name = getFirstNameFromEmail(email);
   const password = 'defaultPassword'; // You might want to generate a more secure password
-  const age = Math.floor(Math.random() * 30) + 18; // Random age between 18 and 48
+  const age = Math.floor(Math.random() * 10) + 18; // Random age between 18 and 48
   const gender = Math.floor(Math.random() * 2) + 1; // Random gender 1 or 2
   const startYear = Math.floor(Math.random() * 3) + 2020; // Random start year between 2020 and 2023
   const courses = ['Course 1', 'Course 2', 'Course 3'];
   const course = courses[Math.floor(Math.random() * courses.length)];
-  const reports = Math.floor(Math.random() * 10); // Random reports count between 0 and 9
+  const reports = Math.floor(Math.random() * 10); // Random number of reports between 0 and 9
 
   return {
     email,

@@ -1,23 +1,25 @@
 // src/seed/seed.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Skill } from '../entities/skill.entity';
+import { Skill } from '../src/services/skills/skill.entity';
 import { Repository, DataSource, QueryRunner } from 'typeorm';
 import { skillSeed } from './skill.seed';
-import { User } from '../entities/user.entity';
-import { userSeed } from './user.seed';
-import { UserSkill } from '../entities/user-skill.entity';
+import { User } from '../src/services/users/user.entity';
+import { UserSkill } from '../src/services/user-skills/user-skill.entity';
 import { userSkillSeed } from './user-skill.seed';
-import { UserInterest } from '../entities/user-interest.entity';
+import { UserInterest } from '../src/services/user-interests/user-interest.entity';
 import { userInterestSeed } from './user-interest.seed';
 import { skillRequestSeed } from './skill-request-and-notification.seed';
 import { notificationSeed } from './skill-request-and-notification.seed';
-import { SkillRequest } from '../entities/skill-request.entity';
-import { Notification } from '../entities/notification.entity';
+import { SkillRequest } from '../src/services/skill-requests/skill-request.entity';
+import { Notification } from '../src/services/notifications/notification.entity';
+import { HashService } from '../src/services/auth/hash.service';
+import { userSeed } from './user.seed';
 
 @Injectable()
 export class SeedService {
   constructor(
+    private hashService: HashService,
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
     @InjectRepository(Skill)
@@ -63,7 +65,15 @@ export class SeedService {
   private async seedUsers(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.manager.getRepository(User).delete({});
     await queryRunner.query('ALTER TABLE user AUTO_INCREMENT = 1');
-    await queryRunner.manager.getRepository(User).save(userSeed);
+
+    const newUserSeed = await Promise.all(
+      userSeed.map(async (user) => {
+        const hashedPassword = await this.hashService.hashData(user.password);
+        return { ...user, password: hashedPassword };
+      }),
+    );
+
+    await queryRunner.manager.getRepository(User).save(newUserSeed);
   }
 
   private async seedUserSkills(queryRunner: QueryRunner): Promise<void> {
