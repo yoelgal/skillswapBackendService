@@ -1,8 +1,8 @@
-// Entity for UserInterest that has a primary generated id, a user id, a skill id, and a skill level(1-4)
+// entity for request that has a generated id, a user id, a sender id, a skill id, and a note
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class UserInterest {
+export class SkillRequest {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -10,8 +10,11 @@ export class UserInterest {
   userId: number;
 
   @Column()
+  senderId: number;
+
+  @Column()
   skillId: number;
 
   @Column()
-  skillLevel: number;
+  note: string;
 }

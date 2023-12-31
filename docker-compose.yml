@@ -1,19 +1,19 @@
 version: '3.8'
 services:
-  app:
-    container_name: skillswap-backend
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-    environment:
-      DATABASE_HOST: db
-      DATABASE_USER: root
-      DATABASE_PASSWORD: root
-      DATABASE_NAME: skillswap
+  #  app:
+  #    container_name: skillswap-backend
+  #    build:
+  #      context: .
+  #      dockerfile: Dockerfile
+  #    ports:
+  #      - "3000:3000"
+  #    depends_on:
+  #      - db
+  #    environment:
+  #      DATABASE_HOST: db
+  #      DATABASE_USER: root
+  #      DATABASE_PASSWORD: root
+  #      DATABASE_NAME: skillswap
 
   db:
     container_name: mysql-db

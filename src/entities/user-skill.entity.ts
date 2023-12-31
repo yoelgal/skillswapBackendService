@@ -1,21 +1,21 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from './user.entity';
-import { Skill } from './skill.entity';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
+// Path: src/entities/user-skill.entity.ts
+// Entity for UserSkill that has a primary generated id, a userid, a skill id, a note, and a skill level(1-4)
 @Entity()
 export class UserSkill {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => User, (user) => user.userSkills)
-  user: User;
+  @Column()
+  userId: number;
 
-  @ManyToOne(() => Skill)
-  skill: Skill;
+  @Column()
+  skillId: number;
 
   @Column()
   note: string;
 
-  @Column('int')
+  @Column()
   skillLevel: number;
 }

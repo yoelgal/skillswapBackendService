@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   const seedService = app.get(SeedService);
-  await seedService.seedSkills();
+  await seedService.seedDatabase();
   await app.listen(3000);
 }
 
