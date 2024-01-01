@@ -78,7 +78,7 @@ function generateRandomUser(): any {
   const password = 'defaultPassword'; // You might want to generate a more secure password
   const age = Math.floor(Math.random() * 10) + 18; // Random age between 18 and 48
   const gender = Math.floor(Math.random() * 2) + 1; // Random gender 1 or 2
-  const startYear = Math.floor(Math.random() * 3) + 2020; // Random start year between 2020 and 2023
+  const yearOfStudy = Math.floor(Math.random() * 5) + 1; // Random start year between 2020 and 2023
   const courses = ['Course 1', 'Course 2', 'Course 3'];
   const course = courses[Math.floor(Math.random() * courses.length)];
   const reports = Math.floor(Math.random() * 10); // Random number of reports between 0 and 9
@@ -89,7 +89,7 @@ function generateRandomUser(): any {
     password,
     age,
     gender,
-    startYear,
+    yearOfStudy,
     course,
     reports,
   };

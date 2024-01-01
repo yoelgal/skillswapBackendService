@@ -57,4 +57,21 @@ export class UsersService {
       return this.usersRepository.save(user);
     }
   }
+
+  async updateUser(
+    userId: number,
+    age: number,
+    gender: number,
+    yearOfStudy: number,
+    course: string,
+  ) {
+    const user = await this.usersRepository.findOne({ where: { id: userId } });
+
+    user.age = age;
+    user.gender = gender;
+    user.yearOfStudy = yearOfStudy;
+    user.course = course;
+
+    return this.usersRepository.save(user);
+  }
 }

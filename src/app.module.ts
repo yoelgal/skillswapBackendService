@@ -17,6 +17,7 @@ import { SkillRequest } from './services/skill-requests/skill-request.entity';
 import { NotificationsModule } from './services/notifications/notifications.module';
 import { Notification } from './services/notifications/notification.entity';
 import { AuthModule } from './services/auth/auth.module';
+import { CoursesModule } from './services/courses/courses.module';
 
 @Module({
   imports: [
@@ -48,6 +49,7 @@ import { AuthModule } from './services/auth/auth.module';
     SkillRequestsModule,
     NotificationsModule,
     AuthModule,
+    CoursesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -21,7 +21,7 @@ export class User {
   gender: number;
 
   @Column()
-  startYear: number;
+  yearOfStudy: number;
 
   @Column()
   course: string;

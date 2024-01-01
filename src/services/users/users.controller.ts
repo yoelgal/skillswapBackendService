@@ -5,6 +5,7 @@ import {
   HttpCode,
   HttpException,
   HttpStatus,
+  Patch,
   Post,
   UseGuards,
 } from '@nestjs/common';
@@ -38,5 +39,23 @@ export class UsersController {
   @HttpCode(HttpStatus.CREATED)
   async createUser(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('/update')
+  async updateUser(
+    @GetUser() user: User,
+    @Body('age') age: number,
+    @Body('gender') gender: number,
+    @Body('yearOfStudy') yearOfStudy: number,
+    @Body('course') course: string,
+  ) {
+    return this.usersService.updateUser(
+      user.id,
+      age,
+      gender,
+      yearOfStudy,
+      course,
+    );
   }
 }
