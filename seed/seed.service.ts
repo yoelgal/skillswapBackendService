@@ -35,7 +35,7 @@ export class SeedService {
     private readonly dataSource: DataSource,
   ) {}
 
-  async seedDatabase() {
+  async seedForDev() {
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
@@ -46,6 +46,22 @@ export class SeedService {
       await this.seedUserInterests(queryRunner);
       await this.seedSkillRequests(queryRunner);
       await this.seedNotifications(queryRunner);
+
+      await queryRunner.commitTransaction();
+    } catch (err) {
+      await queryRunner.rollbackTransaction();
+      console.error(err);
+    } finally {
+      await queryRunner.release();
+    }
+  }
+
+  async seedForProd() {
+    const queryRunner = this.dataSource.createQueryRunner();
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
+    try {
+      await this.seedSkills(queryRunner);
 
       await queryRunner.commitTransaction();
     } catch (err) {
