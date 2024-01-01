@@ -1,4 +1,4 @@
-// src/mail/mail.service.ts
+// src/services/auth/mail.service.ts
 
 //... other imports
 import { ConfigService } from '@nestjs/config';

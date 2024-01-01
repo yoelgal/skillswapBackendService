@@ -1,3 +1,5 @@
+// src/services/user-skills/user-skills.service.ts
+
 import {
   Body,
   Controller,
@@ -14,7 +16,7 @@ import { UserSkillsService } from './user-skills.service';
 import { GetUser } from '../../utils/get-user.decorator';
 import { User } from '../users/user.entity';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { CreateUserSkillDto } from '../../utils/dto/create-user-skill.dto';
+import { CreateUserSkillDto } from './create-user-skill.dto';
 
 @Controller('user-skills')
 export class UserSkillsController {

@@ -1,3 +1,4 @@
+//src/services/user-skills/user-skills.service.ts
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

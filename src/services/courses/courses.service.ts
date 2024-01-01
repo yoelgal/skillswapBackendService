@@ -1,3 +1,5 @@
+// src/services/courses/courses.service.ts
+
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

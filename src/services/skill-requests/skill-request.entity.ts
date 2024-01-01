@@ -1,3 +1,5 @@
+// src/entities/user-interest.entity.ts
+
 // entity for request that has a generated id, a user id, a sender id, a skill id, and a note
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 

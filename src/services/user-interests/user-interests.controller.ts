@@ -1,3 +1,5 @@
+// src/entities/user-interest.entity.ts
+
 import {
   Body,
   Controller,
@@ -13,7 +15,7 @@ import { UserInterestsService } from './user-interests.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { User } from '../users/user.entity';
 import { GetUser } from '../../utils/get-user.decorator';
-import { CreateUserInterestDto } from '../../utils/dto/create-user-interest.dto';
+import { CreateUserInterestDto } from './create-user-interest.dto';
 
 @Controller('user-interests')
 export class UserInterestsController {

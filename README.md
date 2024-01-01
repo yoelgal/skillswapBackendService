@@ -36,14 +36,11 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+# build docker container
+$ npm run docker
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# run server
+$ npm run start:ts
 ```
 
 ## Test

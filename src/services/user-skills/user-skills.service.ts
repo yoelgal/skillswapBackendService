@@ -1,3 +1,5 @@
+// src/services/user-skills/user-skills.service.ts
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserSkill } from './user-skill.entity';
@@ -5,8 +7,7 @@ import { Repository } from 'typeorm';
 import { UserInterest } from '../user-interests/user-interest.entity';
 import { User } from '../users/user.entity';
 import { Skill } from '../skills/skill.entity';
-import { CreateUserSkillDto } from '../../utils/dto/create-user-skill.dto';
-import { SkillRequest } from '../skill-requests/skill-request.entity';
+import { CreateUserSkillDto } from './create-user-skill.dto';
 
 @Injectable()
 export class UserSkillsService {

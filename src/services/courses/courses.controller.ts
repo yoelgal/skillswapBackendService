@@ -1,3 +1,5 @@
+// src/services/courses/courses.controller.ts
+
 import { Controller, Get, Param } from '@nestjs/common';
 import { CoursesService } from './courses.service';
 

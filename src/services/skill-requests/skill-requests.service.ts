@@ -1,3 +1,5 @@
+// src/services/user-skills/user-skill.entity.ts
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -7,7 +9,6 @@ import { Skill } from '../skills/skill.entity';
 import { UserInterest } from '../user-interests/user-interest.entity';
 import { Notification } from '../notifications/notification.entity';
 import { NotificationsService } from '../notifications/notifications.service';
-import { request } from 'express';
 import { UsersService } from '../users/users.service';
 
 @Injectable()

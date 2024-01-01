@@ -1,3 +1,4 @@
+//src/services/users/users.controller.ts
 import {
   Body,
   Controller,
@@ -10,7 +11,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserDto } from '../../utils/dto/create-user.dto';
+import { CreateUserDto } from './create-user.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { GetUser } from '../../utils/get-user.decorator';
 import { User } from './user.entity';

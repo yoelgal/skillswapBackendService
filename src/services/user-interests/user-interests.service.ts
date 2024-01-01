@@ -1,9 +1,11 @@
+// src/services/user-interests/user-interests.service.ts
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserInterest } from './user-interest.entity';
 import { Repository } from 'typeorm';
 import { Skill } from '../skills/skill.entity';
-import { CreateUserInterestDto } from '../../utils/dto/create-user-interest.dto';
+import { CreateUserInterestDto } from './create-user-interest.dto';
 
 @Injectable()
 export class UserInterestsService {

@@ -1,10 +1,11 @@
+// src/services/notifications/notifications.service.ts
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Notification } from './notification.entity';
 import { User } from '../users/user.entity';
 import { Skill } from '../skills/skill.entity';
-import { SkillRequestsService } from '../skill-requests/skill-requests.service';
 
 @Injectable()
 export class NotificationsService {

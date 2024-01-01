@@ -1,3 +1,5 @@
+// src/services/user-interests/create-user-interest.dto.ts
+
 import { IsInt, Min, Max } from 'class-validator';
 
 export class CreateUserInterestDto {

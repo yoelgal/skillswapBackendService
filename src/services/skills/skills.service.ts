@@ -1,3 +1,5 @@
+// src/services/skills/skills.service.ts
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Skill } from './skill.entity';

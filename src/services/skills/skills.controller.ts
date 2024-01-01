@@ -1,3 +1,5 @@
+// src/services/user-skills/user-skill.entity.ts
+
 import { Controller, Get, Param } from '@nestjs/common';
 import { SkillsService } from './skills.service';
 

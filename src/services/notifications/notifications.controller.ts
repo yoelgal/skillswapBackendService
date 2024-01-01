@@ -1,3 +1,5 @@
+// src/services/notifications/notifications.controller.ts
+
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { NotificationsService } from './notifications.service';
 import { GetUser } from '../../utils/get-user.decorator';
