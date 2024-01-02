@@ -1,5 +1,14 @@
 # API Documentation
 
+- [Users](#users)
+- [User Skills](#user-skills)
+- [User Interests](#user-interests)
+- [Skills](#skills)
+- [Skill Requests](#skill-requests)
+- [Notifications](#notifications)
+- [Courses](#courses)
+- [Authentication](#authentication)
+
 ## Users
 
 ### 1. Get User Details
