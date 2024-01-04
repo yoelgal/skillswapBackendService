@@ -18,11 +18,19 @@ export class UsersService {
   ) {}
 
   async findOne(id: number): Promise<User | undefined> {
-    return this.usersRepository.findOne({ where: { id } });
+    const user = this.usersRepository.findOne({ where: { id } });
+    if (!user) {
+      throw new Error('User not found');
+    }
+    return user;
   }
 
   async findByEmail(email: string): Promise<User | undefined> {
-    return this.usersRepository.findOne({ where: { email } });
+    const user = this.usersRepository.findOne({ where: { email } });
+    if (!user) {
+      throw new Error('User not found');
+    }
+    return user;
   }
 
   async findAll(): Promise<User[]> {
