@@ -1,8 +1,8 @@
-import { IsInt, IsString, Min, Max, IsEmail } from 'class-validator';
+import { IsInt, IsString, Min } from 'class-validator';
 
 export class CreateUserDto {
-  @IsEmail()
-  email: string;
+  @IsString()
+  emailToken: string;
 
   @IsString()
   password: string;
@@ -15,9 +15,8 @@ export class CreateUserDto {
   gender: number;
 
   @IsInt()
-  @Min(1900)
-  @Max(new Date().getFullYear())
-  startYear: number;
+  @Min(1)
+  yearOfStudy: number;
 
   @IsString()
   course: string;

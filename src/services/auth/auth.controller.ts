@@ -20,8 +20,12 @@ export class AuthController {
 
   @Post('send-email')
   async sendEmail(@Body('recipient') recipient: string) {
-    await this.mailService.sendMail(recipient);
-    return { message: 'Email sent successfully' };
+    try {
+      await this.mailService.sendVerificationMail(recipient);
+      return { message: 'Email sent successfully' };
+    } catch (err) {
+      return { message: err.message };
+    }
   }
 
   @Post('verify-token')

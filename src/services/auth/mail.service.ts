@@ -6,6 +6,7 @@ import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
 import * as jwt from 'jsonwebtoken';
 import { User } from '../users/user.entity';
+import * as process from 'process';
 
 @Injectable()
 export class MailService {
@@ -37,12 +38,19 @@ export class MailService {
     await this.transporter.sendMail(mailOptions);
   }
 
-  async sendMail(recipient: string): Promise<void> {
+  async sendVerificationMail(recipient: string): Promise<void> {
+    if (
+      !recipient.endsWith('@student.manchester.ac.uk') &&
+      process.env.NODE_ENV === 'production'
+    ) {
+      throw new Error('Invalid email address');
+    }
+
     // Generate a verification token
     const verificationToken = jwt.sign(
       { email: recipient },
       process.env.JWT_SECRET,
-      { expiresIn: '10m' },
+      { expiresIn: '1h' },
     );
 
     // Construct the verification link
@@ -53,7 +61,7 @@ export class MailService {
       to: recipient,
       subject: 'Email Verification',
       html: `
-        <b>Click the link below to verify your email for SkillSwap. This link will expire in 10 minutes.</b>
+        <b>Click the link below to verify your email for SkillSwap. This link will expire in 1 hour.</b>
         <br />
         <a href="${verificationLink}">${verificationLink}</a>
       `,

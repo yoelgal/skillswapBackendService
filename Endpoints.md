@@ -35,7 +35,7 @@
 - **HTTP Method**: POST
 - **Description**: Creates a new user. Requires a request body with user details.
 - **Request Body** (`CreateUserDto`):
-    - `email`: string (required, must be a valid email)
+    - `emailToken`: string (required, token included in the email sent to the user)
     - `password`: string (required)
     - `age`: integer (required, minimum 0)
     - `gender`: integer (required)
@@ -44,7 +44,7 @@
 - **Example Request Body**:
   ```json
   {
-  "email": "newuser@example.com",
+  "emailToken": "long token string",
   "password": "SecurePassword123",
   "age": 21,
   "gender": 1,

@@ -30,7 +30,21 @@ export class UsersService {
   }
 
   async create(createUserDto: CreateUserDto): Promise<User> {
-    const email = createUserDto.email;
+    let email;
+    const tokenData = await this.mailService.decodeToken(
+      createUserDto.emailToken,
+    );
+    if (tokenData.data) {
+      email = tokenData.data.email;
+    } else {
+      throw new Error('Invalid email token');
+    }
+
+    const userExists = await this.usersRepository.findOne({ where: { email } });
+    if (userExists) {
+      throw new Error('Email already in use');
+    }
+
     const name = email[0].toUpperCase() + email.slice(1).split('.')[0];
 
     const hashedPassword = await this.hashService.hashData(
@@ -38,9 +52,13 @@ export class UsersService {
     );
 
     const userEntity = {
-      ...createUserDto,
-      password: hashedPassword,
+      email,
       name,
+      password: hashedPassword,
+      age: createUserDto.age,
+      gender: createUserDto.gender,
+      yearOfStudy: createUserDto.yearOfStudy,
+      course: createUserDto.course,
       reports: 0,
     };
     const user = this.usersRepository.create(userEntity);
