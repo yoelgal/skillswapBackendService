@@ -5,7 +5,6 @@ function getFirstNameFromEmail(email: string): string {
 }
 
 function generateRandomEmail(): string {
-  const domains = ['example.com', 'mail.com', 'test.org'];
   const firstNames = [
     'John',
     'Jane',
@@ -70,18 +69,14 @@ function generateRandomEmail(): string {
   const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
   const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
 
-  const domain = domains[Math.floor(Math.random() * domains.length)];
-  return `${firstName}.${lastName}@${domain}`;
+  return `${firstName}.${lastName}@student.manchester.ac.uk`;
 }
 
 function pickRandomCourse(): string {
   let course: string;
   while (true) {
     course = courses[Math.floor(Math.random() * courses.length)];
-    if (
-      course !== 'UNDERGRADUATE COURSES' &&
-      course !== 'POSTGRADUATE COURSES'
-    ) {
+    if (course.slice(-7) !== 'COURSES') {
       break;
     }
   }
