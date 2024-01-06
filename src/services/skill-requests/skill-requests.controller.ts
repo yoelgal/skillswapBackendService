@@ -11,20 +11,20 @@ export class SkillRequestsController {
   constructor(private readonly requestsService: SkillRequestsService) {}
 
   //Get method that calls the findAll() method from the SkillRequestsService class.
-  @Get('/all')
+  @Get('/get-all-skill-requests')
   async getAllRequests() {
     return this.requestsService.findAll();
   }
 
   //Get method that takes the id as a Param and calls the findRequestsByUserId() method from the SkillRequestsService class.
   @UseGuards(JwtAuthGuard)
-  @Get('/user')
+  @Get('/get-user-skill-requests')
   async getRequestsByUserId(@GetUser() user: User) {
     return this.requestsService.findRequestsByUserId(user.id);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/create')
+  @Post('/create-skill-request')
   async createRequest(
     @GetUser() user: User,
     @Body('skillId') skillId: number,
@@ -40,7 +40,7 @@ export class SkillRequestsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/accept')
+  @Post('/accept-skill-request')
   async acceptRequest(
     @GetUser() user: User,
     @Body('requestId') requestId: number,
@@ -52,7 +52,7 @@ export class SkillRequestsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/reject')
+  @Post('/reject-skill-request')
   async rejectRequest(
     @GetUser() user: User,
     @Body('requestId') requestId: number,
@@ -64,7 +64,7 @@ export class SkillRequestsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/report')
+  @Post('/report-skill-request')
   async reportRequest(
     @GetUser() user: User,
     @Body('requestId') requestId: number,

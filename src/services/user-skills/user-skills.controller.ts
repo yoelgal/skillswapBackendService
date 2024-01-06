@@ -23,28 +23,28 @@ export class UserSkillsController {
   constructor(private readonly userSkillsService: UserSkillsService) {}
 
   //Get method that calls the findAll() method from the UserSkillsService class.
-  @Get('/all')
+  @Get('/get-all-user-skills')
   async getAllUserSkills() {
     return this.userSkillsService.findAll();
   }
 
   // Get method that calls the findUserSkillsByUserId() method from the UserSkillsService class, taking the id as a Param.
   @UseGuards(JwtAuthGuard)
-  @Get('/user')
+  @Get('/get-user-skills')
   async getUserSkillsByUserId(@GetUser() user: User) {
     return this.userSkillsService.findUserSkillsByUserId(user.id);
   }
 
   //Get method that calls the findSkillsThatMatchUserInterests() method from the UserSkillsService class.
   @UseGuards(JwtAuthGuard)
-  @Get('/dashboard')
+  @Get('/get-matches')
   async getAdvancedSkills(@GetUser() user: User) {
     return this.userSkillsService.findSkillsThatMatchUserInterests(user.id);
   }
 
   //get method that calls the findUserSkillsBySearchInput() method from the UserSkillsService class.
   @UseGuards(JwtAuthGuard)
-  @Get('/dashboard/:searchInput')
+  @Get('/search/:searchInput')
   async getSkillsBySearchInput(
     @GetUser() user: User,
     @Param('searchInput') searchInput: string,
@@ -56,7 +56,7 @@ export class UserSkillsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/create')
+  @Post('/create-user-skill')
   @HttpCode(HttpStatus.CREATED)
   async createUserSkill(
     @GetUser() user: User,
@@ -66,7 +66,7 @@ export class UserSkillsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Patch('/update')
+  @Patch('/update-user-skill')
   async updateUserSkill(
     @GetUser() user: User,
     @Body('id') id: number,
@@ -82,7 +82,7 @@ export class UserSkillsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Delete('/delete')
+  @Delete('/delete-user-skill')
   async deleteUserSkill(@GetUser() user: User, @Body('id') id: number) {
     return this.userSkillsService.deleteUserSkill(user.id, id);
   }

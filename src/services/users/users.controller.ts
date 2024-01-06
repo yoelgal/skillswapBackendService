@@ -21,7 +21,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @UseGuards(JwtAuthGuard)
-  @Get('/user')
+  @Get('/get-user')
   async getUser(@GetUser() user: User) {
     const userData = await this.usersService.findOne(user.id);
     if (!userData) {
@@ -31,19 +31,19 @@ export class UsersController {
     return userData;
   }
 
-  @Get('/all')
+  @Get('/get-all-users')
   async getAllUsers() {
     return this.usersService.findAll();
   }
 
-  @Post('/create')
+  @Post('/create-user')
   @HttpCode(HttpStatus.CREATED)
   async createUser(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Patch('/update')
+  @Patch('/update-user')
   async updateUser(
     @GetUser() user: User,
     @Body('age') age: number,

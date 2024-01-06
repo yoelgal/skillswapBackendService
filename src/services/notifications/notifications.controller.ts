@@ -10,19 +10,19 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 export class NotificationsController {
   constructor(private readonly notificationsService: NotificationsService) {}
 
-  @Get('/all')
+  @Get('/get-all-notifications')
   async getAllNotifications() {
     return this.notificationsService.findAll();
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/user')
+  @Get('/get-user-notifications')
   async getNotificationsByUserId(@GetUser() user: User) {
     return this.notificationsService.findNotificationsByUserId(user.id);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/delete')
+  @Post('/delete-notification')
   async deleteNotification(
     @GetUser() user: User,
     @Body('notificationId') notificationId: number,

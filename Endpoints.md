@@ -13,7 +13,7 @@
 
 ### 1. Get User Details
 
-- **Endpoint URL**: `/users/user`
+- **Endpoint URL**: `/users/get-user`
 - **HTTP Method**: GET
 - **Authorization**: JWT Required
 - **Description**: Retrieves the details of the currently authenticated user.
@@ -23,7 +23,7 @@
 
 ### 2. Get All Users
 
-- **Endpoint URL**: `/users/all`
+- **Endpoint URL**: `/users/get-all-users`
 - **HTTP Method**: GET
 - **Description**: Retrieves a list of all users.
 - **Response**:
@@ -31,7 +31,7 @@
 
 ### 3. Create User
 
-- **Endpoint URL**: `/users/create`
+- **Endpoint URL**: `/users/create-user`
 - **HTTP Method**: POST
 - **Description**: Creates a new user. Requires a request body with user details.
 - **Request Body** (`CreateUserDto`):
@@ -57,7 +57,7 @@
 
 ### 4. Update User
 
-- **Endpoint URL**: `/users/update`
+- **Endpoint URL**: `/users/update-user`
 - **HTTP Method**: PATCH
 - **Authorization**: JWT Required
 - **Description**: Updates details of the currently authenticated user. Requires certain parameters in the request body.
@@ -84,7 +84,7 @@
 
 ### 1. Get All User Skills
 
-- **Endpoint URL**: `/user-skills/all`
+- **Endpoint URL**: `/user-skills/get-all-user-skills`
 - **HTTP Method**: GET
 - **Description**: Retrieves a list of all user skills.
 - **Responses**:
@@ -92,7 +92,7 @@
 
 ### 2. Get User Skills By User ID
 
-- **Endpoint URL**: `/user-skills/user`
+- **Endpoint URL**: `/user-skills/get-user-skills`
 - **HTTP Method**: GET
 - **Authorization**: JWT Required
 - **Description**: Retrieves the skills of the currently authenticated user.
@@ -101,7 +101,7 @@
 
 ### 3. Get Advanced Skills
 
-- **Endpoint URL**: `/user-skills/dashboard`
+- **Endpoint URL**: `/user-skills/get-matches`
 - **HTTP Method**: GET
 - **Authorization**: JWT Required
 - **Description**: Retrieves skills that match the interests of the currently authenticated user.
@@ -110,7 +110,7 @@
 
 ### 4. Get Skills By Search Input
 
-- **Endpoint URL**: `/user-skills/dashboard/:searchInput`
+- **Endpoint URL**: `/user-skills/search/:searchInput`
 - **HTTP Method**: GET
 - **Authorization**: JWT Required
 - **Description**: Searches for skills based on a given input.
@@ -121,7 +121,7 @@
 
 ### 5. Create User Skill
 
-- **Endpoint URL**: `/user-skills/create`
+- **Endpoint URL**: `/user-skills/create-user-skill`
 - **HTTP Method**: POST
 - **Authorization**: JWT Required
 - **Description**: Creates a new user skill for the authenticated user.
@@ -142,7 +142,7 @@
 
 ### 6. Update User Skill
 
-- **Endpoint URL**: `/user-skills/update`
+- **Endpoint URL**: `/user-skills/update-user-skill`
 - **HTTP Method**: PATCH
 - **Authorization**: JWT Required
 - **Description**: Updates a specific skill for the authenticated user.
@@ -163,7 +163,7 @@
 
 ### 7. Delete User Skill
 
-- **Endpoint URL**: `/user-skills/delete`
+- **Endpoint URL**: `/user-skills/delete-user-skill`
 - **HTTP Method**: DELETE
 - **Authorization**: JWT Required
 - **Description**: Deletes a specific skill for the authenticated user.
@@ -184,7 +184,7 @@
 
 ### 1. Get All User Interests
 
-- **Endpoint URL**: `/user-interests/all`
+- **Endpoint URL**: `/user-interests/get-all-user-interests`
 - **HTTP Method**: GET
 - **Description**: Retrieves a list of all user interests.
 - **Responses**:
@@ -192,7 +192,7 @@
 
 ### 2. Get User Interests By User ID
 
-- **Endpoint URL**: `/user-interests/user`
+- **Endpoint URL**: `/user-interests/get-user-interests`
 - **HTTP Method**: GET
 - **Authorization**: JWT Required
 - **Description**: Retrieves the interests of the currently authenticated user.
@@ -201,7 +201,7 @@
 
 ### 3. Create User Interest
 
-- **Endpoint URL**: `/user-interests/create`
+- **Endpoint URL**: `/user-interests/create-user-interest`
 - **HTTP Method**: POST
 - **Authorization**: JWT Required
 - **Description**: Creates a new user interest for the authenticated user.
@@ -220,7 +220,7 @@
 
 ### 4. Update User Interest
 
-- **Endpoint URL**: `/user-interests/update`
+- **Endpoint URL**: `/user-interests/update-user-interest`
 - **HTTP Method**: PATCH
 - **Authorization**: JWT Required
 - **Description**: Updates a specific interest for the authenticated user.
@@ -239,7 +239,7 @@
 
 ### 5. Delete User Interest
 
-- **Endpoint URL**: `/user-interests/delete`
+- **Endpoint URL**: `/user-interests/delete-user-interest`
 - **HTTP Method**: DELETE
 - **Authorization**: JWT Required
 - **Description**: Deletes a specific interest for the authenticated user.
@@ -260,7 +260,7 @@
 
 ### 1. Get All Skills
 
-- **Endpoint URL**: `/skills/all`
+- **Endpoint URL**: `/skills/get-all-skills`
 - **HTTP Method**: GET
 - **Description**: Retrieves a list of all skills.
 - **Responses**:
@@ -282,7 +282,7 @@
 
 ### 1. Get All Skill Requests
 
-- **Endpoint URL**: `/skill-requests/all`
+- **Endpoint URL**: `/skill-requests/get-all-skill-requests`
 - **HTTP Method**: GET
 - **Description**: Retrieves a list of all skill requests.
 - **Responses**:
@@ -290,7 +290,7 @@
 
 ### 2. Get Skill Requests By User ID
 
-- **Endpoint URL**: `/skill-requests/user`
+- **Endpoint URL**: `/skill-requests/get-user-skill-requests`
 - **HTTP Method**: GET
 - **Authorization**: JWT Required
 - **Description**: Retrieves skill requests associated with the currently authenticated user.
@@ -299,7 +299,7 @@
 
 ### 3. Create Skill Request
 
-- **Endpoint URL**: `/skill-requests/create`
+- **Endpoint URL**: `/skill-requests/create-skill-request`
 - **HTTP Method**: POST
 - **Authorization**: JWT Required
 - **Description**: Creates a new skill request.
@@ -320,7 +320,7 @@
 
 ### 4. Accept Skill Request
 
-- **Endpoint URL**: `/skill-requests/accept`
+- **Endpoint URL**: `/skill-requests/accept-skill-request`
 - **HTTP Method**: POST
 - **Authorization**: JWT Required
 - **Description**: Accepts a skill request.
@@ -337,7 +337,7 @@
 
 ### 5. Reject Skill Request
 
-- **Endpoint URL**: `/skill-requests/reject`
+- **Endpoint URL**: `/skill-requests/reject-skill-request`
 - **HTTP Method**: POST
 - **Authorization**: JWT Required
 - **Description**: Rejects a skill request.
@@ -354,7 +354,7 @@
 
 ### 6. Report Skill Request
 
-- **Endpoint URL**: `/skill-requests/report`
+- **Endpoint URL**: `/skill-requests/report-skill-request`
 - **HTTP Method**: POST
 - **Authorization**: JWT Required
 - **Description**: Reports a skill request.
@@ -375,7 +375,7 @@
 
 ### 1. Get All Notifications
 
-- **Endpoint URL**: `/notifications/all`
+- **Endpoint URL**: `/notifications/get-all-notifications`
 - **HTTP Method**: GET
 - **Description**: Retrieves a list of all notifications.
 - **Responses**:
@@ -383,7 +383,7 @@
 
 ### 2. Get Notifications By User ID
 
-- **Endpoint URL**: `/notifications/user`
+- **Endpoint URL**: `/notifications/usget-user-notificationser`
 - **HTTP Method**: GET
 - **Authorization**: JWT Required
 - **Description**: Retrieves notifications for the currently authenticated user. If the notification is accepted, it
@@ -394,7 +394,7 @@
 
 ### 3. Delete Notification
 
-- **Endpoint URL**: `/notifications/delete`
+- **Endpoint URL**: `/notifications/delete-notification`
 - **HTTP Method**: POST
 - **Authorization**: JWT Required
 - **Description**: Deletes a specific notification for the authenticated user.
@@ -415,7 +415,7 @@
 
 ### 1. Get All Courses
 
-- **Endpoint URL**: `/courses`
+- **Endpoint URL**: `/courses/get-all-courses`
 - **HTTP Method**: GET
 - **Description**: Retrieves a list of all available courses.
 - **Responses**:
@@ -423,7 +423,7 @@
 
 ### 2. Get Courses By Search
 
-- **Endpoint URL**: `/courses/:search`
+- **Endpoint URL**: `/courses/search/:search`
 - **HTTP Method**: GET
 - **Description**: Searches for courses based on a given search string.
 - **Parameter**:

@@ -7,7 +7,7 @@ import { SkillsService } from './skills.service';
 export class SkillsController {
   constructor(private readonly skillsService: SkillsService) {}
 
-  @Get('/all')
+  @Get('/get-all-skills')
   async getAllSkills() {
     return this.skillsService.findAll();
   }

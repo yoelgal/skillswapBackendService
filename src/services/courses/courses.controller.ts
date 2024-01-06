@@ -7,12 +7,12 @@ import { CoursesService } from './courses.service';
 export class CoursesController {
   constructor(private readonly coursesService: CoursesService) {}
 
-  @Get('')
+  @Get('/get-all-courses')
   async getAllCourses() {
     return this.coursesService.findAll();
   }
 
-  @Get('/:search')
+  @Get('/search/:search')
   async getCoursesBySearch(@Param('search') search: string) {
     return this.coursesService.findBySearch(search);
   }
