@@ -78,6 +78,8 @@
 - **Response**:
     - `200 OK`: User updated successfully.
 
+[Back to Top ⬆️](#api-documentation)
+
 ---
 
 ## User Skills
@@ -178,7 +180,7 @@
 - **Responses**:
     - `200 OK`: User skill deleted successfully.
 
----
+[Back to Top ⬆️](#api-documentation)
 
 ## User Interests
 
@@ -254,6 +256,8 @@
 - **Responses**:
     - `200 OK`: User interest deleted successfully.
 
+[Back to Top ⬆️](#api-documentation)
+
 ---
 
 ## Skills
@@ -275,6 +279,8 @@
     - `input`: string (required, part of URL)
 - **Responses**:
     - `200 OK`: Skills matching the search input returned.
+
+[Back to Top ⬆️](#api-documentation)
 
 ---
 
@@ -369,6 +375,8 @@
 - **Responses**:
     - `200 OK`: Skill request reported successfully.
 
+[Back to Top ⬆️](#api-documentation)
+
 ---
 
 ## Notifications
@@ -409,6 +417,8 @@
 - **Responses**:
     - `200 OK`: Notification deleted successfully.
 
+[Back to Top ⬆️](#api-documentation)
+
 ---
 
 ## Courses
@@ -430,6 +440,8 @@
     - `search`: string (required, part of URL)
 - **Responses**:
     - `200 OK`: List of courses matching the search criteria returned.
+
+[Back to Top ⬆️](#api-documentation)
 
 ---
 
@@ -487,5 +499,6 @@
     - `200 OK`: Token is valid, returns decoded data.
     - `400 Bad Request`: Token is invalid.
 
+[Back to Top ⬆️](#api-documentation)
 
 
