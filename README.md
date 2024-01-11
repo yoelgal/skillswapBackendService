@@ -33,6 +33,24 @@
 $ npm install
 ```
 
+## Setting up environment - .env
+
+```dotenv
+JWT_SECRET=<generate a jwt secret key and enter here>
+
+# database credentials are for local Docker development
+DATABASE_HOST: localhost
+DATABASE_USER: root
+DATABASE_PASSWORD: root
+DATABASE_NAME: skillswap
+
+EMAIL_USER=<email address being used>
+EMAIL_PASS=<password for email address>
+
+# KEEP THIS AS IT IS SHOWN HERE
+NODE_ENV=development
+```
+
 ## Running the app
 
 ```bash
