@@ -44,12 +44,12 @@
 - **Example Request Body**:
   ```json
   {
-  "emailToken": "long token string",
-  "password": "SecurePassword123",
-  "age": 21,
-  "gender": 1,
-  "startYear": 2022,
-  "course": "Computer Science"
+    "emailToken": "long token string",
+    "password": "SecurePassword123",
+    "age": 21,
+    "gender": 1,
+    "startYear": 2022,
+    "course": "Computer Science"
   }
   ```
 - **Response**:
@@ -69,10 +69,10 @@
 - **Example Request Body**:
   ```json
   {
-  "age": 22,
-  "gender": 1,
-  "yearOfStudy": 3,
-  "course": "Information Technology"
+    "age": 22,
+    "gender": 1,
+    "yearOfStudy": 3,
+    "course": "Information Technology"
   }
   ```
 - **Response**:
@@ -134,9 +134,9 @@
 - **Example Request Body**:
   ```json
   {
-  "skillId": 1,
-  "note": "Interested in this skill",
-  "skillLevel": 2
+    "skillId": 1,
+    "note": "Interested in this skill",
+    "skillLevel": 2
   }
   ```
 - **Responses**:
@@ -155,9 +155,9 @@
 - **Example Request Body**:
   ```json
   {
-  "id": 1,
-  "note": "Updated interest in this skill",
-  "skillLevel": 3
+    "id": 1,
+    "note": "Updated interest in this skill",
+    "skillLevel": 3
   }
   ```
 - **Responses**:
@@ -174,7 +174,7 @@
 - **Example Request Body**:
   ```json
   {
-  "id": 1
+    "id": 1
   }
   ```
 - **Responses**:
@@ -213,8 +213,8 @@
 - **Example Request Body**:
   ```json
   {
-  "skillId": 2,
-  "skillLevel": 3
+    "skillId": 2,
+    "skillLevel": 3
   }
   ```
 - **Responses**:
@@ -232,8 +232,8 @@
 - **Example Request Body**:
   ```json
   {
-  "id": 1,
-  "skillLevel": 2
+    "id": 1,
+    "skillLevel": 2
   }
   ```
 - **Responses**:
@@ -250,7 +250,7 @@
 - **Example Request Body**:
   ```json
   {
-  "id": 1
+    "id": 1
   }
   ```
 - **Responses**:
@@ -316,9 +316,9 @@
 - **Example Request Body**:
   ```json
   {
-  "skillId": 3,
-  "recipientId": 2,
-  "note": "Interested in learning this skill"
+    "skillId": 3,
+    "recipientId": 2,
+    "note": "Interested in learning this skill"
   }
   ```
 - **Responses**:
@@ -335,7 +335,7 @@
 - **Example Request Body**:
   ```json
   {
-  "requestId": 1
+    "requestId": 1
   }
   ```
 - **Responses**:
@@ -352,7 +352,7 @@
 - **Example Request Body**:
   ```json
   {
-  "requestId": 1
+    "requestId": 1
   }
   ```
 - **Responses**:
@@ -369,7 +369,7 @@
 - **Example Request Body**:
   ```json
   {
-  "requestId": 1
+    "requestId": 1
   }
   ```
 - **Responses**:
@@ -411,7 +411,7 @@
 - **Example Request Body**:
   ```json
   {
-  "notificationId": 1
+    "notificationId": 1
   }
   ```
 - **Responses**:
@@ -458,8 +458,8 @@
 - **Example Request Body**:
   ```json
   {
-  "username": "user@example.com",
-  "password": "password123"
+    "username": "user@example.com",
+    "password": "password123"
   }
   ```
 - **Responses**:
@@ -476,7 +476,7 @@
 - **Example Request Body**:
   ```json
   {
-  "recipient": "recipient@example.com"
+    "recipient": "recipient@example.com"
   }
   ```
 - **Responses**:
@@ -492,7 +492,7 @@
 - **Example Request Body**:
   ```json
   {
-  "token": "your-jwt-token-here"
+    "token": "your-jwt-token-here"
   }
   ```
 - **Responses**:
