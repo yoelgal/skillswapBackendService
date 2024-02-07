@@ -35,6 +35,8 @@ $ npm install
 
 ## Setting up environment - .env
 
+For running the email service, log in to your google account and add an 'app password'. Use google and follow the steps on how to make one, then add your own credentials into the .env file.
+
 ```dotenv
 JWT_SECRET=<generate a jwt secret key and enter here>
 
