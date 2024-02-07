@@ -81,6 +81,7 @@ export class UserSkillsService {
         searchInput: `%${searchInput}%`,
       })
       .orWhere('skill.tags LIKE :search', { search: `%${searchInput}%` })
+      .orWhere('userSkill.note LIKE :search', { search: `%${searchInput}%` })
       .select([
         'userSkill.id as id',
         'user.name AS user_name',
