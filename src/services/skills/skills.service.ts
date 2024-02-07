@@ -19,7 +19,10 @@ export class SkillsService {
   async findSkillsBySearchInput(search: string): Promise<Skill[]> {
     return await this.skillsRepository
       .createQueryBuilder('skill')
-      .where('skill.name LIKE :search', { search: `%${search}%` })
+      .where('skill.name LIKE :search', {
+        search: `%${search}%`,
+      })
+      .orWhere('skill.tags LIKE :search', { search: `%${search}%` })
       .getMany();
   }
 }

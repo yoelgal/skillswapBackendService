@@ -29,6 +29,7 @@ export class UserInterestsService {
       .select([
         'userInterest.id AS id',
         'skill.name AS skill_name',
+        'skill.html AS skill_html',
         'userInterest.skillLevel AS skill_level',
       ])
       .getRawMany();

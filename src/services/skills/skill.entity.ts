@@ -9,4 +9,10 @@ export class Skill {
 
   @Column()
   name: string;
+
+  @Column()
+  html: string;
+
+  @Column()
+  tags: string;
 }

@@ -35,6 +35,7 @@ export class UserSkillsService {
       .select([
         'userSkill.id AS id',
         'skill.name AS skill_name',
+        'skill.html AS skill_html',
         'userSkill.skillLevel as skill_level',
         'userSkill.note as note',
       ])
@@ -58,6 +59,7 @@ export class UserSkillsService {
         'userSkill.id as id',
         'user.name AS user_name',
         'skill.name AS skill_name',
+        'skill.html AS skill_html',
         'userSkill.userId as user_id',
         'userSkill.skillLevel as skill_level',
         'userSkill.note as note',
@@ -78,10 +80,12 @@ export class UserSkillsService {
       .andWhere('skill.name LIKE :searchInput', {
         searchInput: `%${searchInput}%`,
       })
+      .orWhere('skill.tags LIKE :search', { search: `%${searchInput}%` })
       .select([
         'userSkill.id as id',
         'user.name AS user_name',
         'skill.name AS skill_name',
+        'skill.html AS skill_html',
         'userSkill.userId as user_id',
         'userSkill.skillLevel as skill_level',
         'userSkill.note as note',
