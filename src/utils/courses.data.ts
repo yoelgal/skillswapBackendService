@@ -1,5 +1,4 @@
 export const courses = [
-  'UNDERGRADUATE COURSES',
   'Accounting (BSc)',
   'Accounting and Finance (BAEcon)',
   'Accounting with Industrial/Professional Experience (BSc)',
@@ -471,7 +470,6 @@ export const courses = [
   'Zoology with a Modern Language (BSc)',
   'Zoology with Entrepreneurship (BSc)',
   'Zoology with Industrial/Professional Experience (BSc)',
-  'POSTGRADUATE COURSES',
   'Accounting (MSc)',
   'Accounting and Finance (MSc)',
   'ACS: Artificial Intelligence (MSc)',

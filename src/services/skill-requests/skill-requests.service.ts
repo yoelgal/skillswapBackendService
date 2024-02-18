@@ -46,6 +46,7 @@ export class SkillRequestsService {
       .select([
         'request.id AS request_id',
         'sender.name AS sender_name',
+        'sender.id AS sender_id',
         'skill.name AS skill_name',
         'request.note',
         'userInterest.skillLevel AS skill_level',

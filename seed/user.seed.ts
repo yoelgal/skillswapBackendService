@@ -105,8 +105,31 @@ function generateRandomUser(): any {
   };
 }
 
+const customUser = {
+  email: 'chuck.norris@student.manchester.ac.uk',
+  name: 'Chuck',
+  password: '123',
+  age: 20,
+  gender: 1,
+  yearOfStudy: 1,
+  course: 'Cognitive Neuroscience and Psychology (BSc)',
+  reports: 0,
+};
+
+const customUser1 = {
+  email: 'manuel.chester@student.manchester.ac.uk',
+  name: 'Manuel',
+  password: '123',
+  age: 20,
+  gender: 1,
+  yearOfStudy: 1,
+  course: 'Geography (BSc)',
+  reports: 0,
+};
+
 function generateUserSeed(): any[] {
   const users: any[] = [];
+  users.push(customUser, customUser1);
   for (let i = 0; i < 250; i++) {
     users.push(generateRandomUser());
   }

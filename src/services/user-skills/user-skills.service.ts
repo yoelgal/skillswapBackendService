@@ -22,7 +22,7 @@ export class UserSkillsService {
     private skillsRepository: Repository<Skill>,
   ) {}
 
-  async findAll(): Promise<UserSkill[]> {
+  async findAll(): Promise<any[]> {
     return this.userSkillsRepository.find();
   }
 
@@ -36,6 +36,7 @@ export class UserSkillsService {
         'userSkill.id AS id',
         'skill.name AS skill_name',
         'skill.html AS skill_html',
+        'skill.id AS skill_id',
         'userSkill.skillLevel as skill_level',
         'userSkill.note as note',
       ])
@@ -58,8 +59,12 @@ export class UserSkillsService {
       .select([
         'userSkill.id as id',
         'user.name AS user_name',
+        'user.age AS user_age',
+        'user.gender AS user_gender',
+        'user.course AS user_course',
         'skill.name AS skill_name',
         'skill.html AS skill_html',
+        'skill.id AS skill_id',
         'userSkill.userId as user_id',
         'userSkill.skillLevel as skill_level',
         'userSkill.note as note',
@@ -85,8 +90,12 @@ export class UserSkillsService {
       .select([
         'userSkill.id as id',
         'user.name AS user_name',
+        'user.age AS user_age',
+        'user.gender AS user_gender',
+        'user.course AS user_course',
         'skill.name AS skill_name',
         'skill.html AS skill_html',
+        'skill.id AS skill_id',
         'userSkill.userId as user_id',
         'userSkill.skillLevel as skill_level',
         'userSkill.note as note',

@@ -54,7 +54,7 @@ export class MailService {
     );
 
     // Construct the verification link
-    const verificationLink = `https://yourfrontend.com/verify-email?token=${verificationToken}`;
+    const verificationLink = `http://localhost:3001/verify?token=${verificationToken}`;
 
     const mailOptions = {
       from: `"No Reply" <${this.configService.get<string>('EMAIL_USER')}>`,

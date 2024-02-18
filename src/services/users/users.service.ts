@@ -69,6 +69,11 @@ export class UsersService {
       course: createUserDto.course,
       reports: 0,
     };
+
+    if (userEntity.age < 0 || userEntity.yearOfStudy < 0) {
+      throw new Error('Invalid age or year of study');
+    }
+
     const user = this.usersRepository.create(userEntity);
     return this.usersRepository.save(user);
   }
@@ -92,6 +97,10 @@ export class UsersService {
     course: string,
   ) {
     const user = await this.usersRepository.findOne({ where: { id: userId } });
+
+    if (age < 0 || yearOfStudy < 0) {
+      throw new Error('Invalid age or year of study');
+    }
 
     user.age = age;
     user.gender = gender;
