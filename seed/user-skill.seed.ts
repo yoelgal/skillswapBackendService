@@ -26,7 +26,7 @@ function generateUserSkillSeed(): any[] {
       userId: 1,
       skillId: i,
       skillLevel: 3,
-      note: `${randomNote} ${skillSeed[i].name.toLowerCase()}`,
+      note: `${randomNote} ${skillSeed[i - 1].name.toLowerCase()}`,
     });
   }
 
@@ -37,7 +37,7 @@ function generateUserSkillSeed(): any[] {
       userId: 2,
       skillId: i,
       skillLevel: 3,
-      note: `${randomNote} ${skillSeed[i].name.toLowerCase()}`,
+      note: `${randomNote} ${skillSeed[i - 1].name.toLowerCase()}`,
     });
   }
 
