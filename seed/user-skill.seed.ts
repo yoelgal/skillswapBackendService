@@ -9,7 +9,6 @@ function generateRandomNote(): string {
     'I would like to say im pretty decent at',
     'Come to me for help with',
     'Just a dude who is passionate about',
-    'Chuck Norris asks me for help with',
     'Avid enjoyer of',
   ];
   return notes[Math.floor(Math.random() * notes.length)];
@@ -26,7 +25,9 @@ function generateUserSkillSeed(): any[] {
       userId: 1,
       skillId: i,
       skillLevel: 3,
-      note: `${randomNote} ${skillSeed[i - 1].name.toLowerCase()}`,
+      note: `Hi! My name is Chuck Norris. ${randomNote} ${skillSeed[
+        i - 1
+      ].name.toLowerCase()}`,
     });
   }
 

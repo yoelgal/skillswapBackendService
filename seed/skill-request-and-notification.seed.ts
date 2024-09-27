@@ -45,11 +45,12 @@ function generateSeeds(): { skillRequestSeed: any[]; notificationSeed: any[] } {
 
   userSkillSeed.forEach((userSkill, index) => {
     if (index > 1) {
-      userInterestSeed.forEach((userInterest) => {
+      userInterestSeed.forEach((userInterest, index) => {
         if (
           userSkill.skillId === userInterest.skillId &&
           userSkill.userId !== userInterest.userId &&
-          userSkill.skillLevel > userInterest.skillLevel
+          userSkill.skillLevel > userInterest.skillLevel &&
+          index > 1
         ) {
           const isAccepted = wasRequestAccepted();
           const text = generateRandomText(userSkill.skillId);

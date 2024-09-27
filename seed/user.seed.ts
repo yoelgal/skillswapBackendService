@@ -127,9 +127,20 @@ const customUser1 = {
   reports: 0,
 };
 
+const yoelUser = {
+  email: 'yoel.gal@student.manchester.ac.uk',
+  name: 'Yoel',
+  password: '123',
+  age: 19,
+  gender: 1,
+  yearOfStudy: 1,
+  course: 'Computer Science (BSc)',
+  reports: 0,
+};
+
 function generateUserSeed(): any[] {
   const users: any[] = [];
-  users.push(customUser, customUser1);
+  users.push(customUser, customUser1, yoelUser);
   for (let i = 0; i < 250; i++) {
     users.push(generateRandomUser());
   }
